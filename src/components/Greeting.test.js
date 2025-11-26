@@ -2,26 +2,33 @@
 import Greeting from "./Greeting.jsx";
 import '@testing-library/jest-dom';
 
-test('renders Hello World as a text', () => {
-    //! Arrange
-    render(<Greeting />)
 
-    //! Act
+//! A Test Suite is a group of tests combined together
+//! Here we have multiple tests inside a test suite
+describe('Greeting User Feature', () => {
 
-    //! Assert
+    test('renders Hello World as a text', () => {
+        //! Arrange
+        render(<Greeting />)
 
-    //! screen.get()    ==> will throw error if element is not found
-    //! screen.find()   ==> return a promise
-    //! screen.query()  ==> will not throw error if element is not found
+        //! Act
 
-    //! Exact Match
-    const helloWorldElement = screen.getByText('Hello World', {exact: false})
-    expect(helloWorldElement).toBeInTheDocument()
+        //! Assert
 
-    //! Not Exact Match
-    const helloWorldElement2 = screen.getByText('Hello World!')
-    expect(helloWorldElement2).toBeInTheDocument()
+        //! screen.get()    ==> will throw error if element is not found
+        //! screen.find()   ==> return a promise
+        //! screen.query()  ==> will not throw error if element is not found
 
-    // const helloWorldElement = screen.queryByText('Hello World')
-    // expect(helloWorldElement).not.toBeInTheDocument();
+        //! Exact Match
+        const helloWorldElement = screen.getByText('Hello World', {exact: false})
+        expect(helloWorldElement).toBeInTheDocument()
+
+        //! Not Exact Match
+        const helloWorldElement2 = screen.getByText('Hello World!')
+        expect(helloWorldElement2).toBeInTheDocument()
+
+        // const helloWorldElement = screen.queryByText('Hello World')
+        // expect(helloWorldElement).not.toBeInTheDocument();
+    })
 })
+
