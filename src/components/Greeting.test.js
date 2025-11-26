@@ -54,6 +54,19 @@ describe('Greeting User Feature', () => {
         const outputElement = screen.getByText('Changed', {exact: false})
         expect(outputElement).toBeInTheDocument();
     })
+
+    test('Doesnot render "good to see you" if the button was Clicked', async () => {
+        //! Arrange
+        render(<Greeting />)
+        //! Act => click the button
+        const buttonElement = screen.getByRole('button')
+        // userEvent.click(buttonElement)
+        const user = userEvent.setup();
+        await user.click(buttonElement);
+        //! Assert
+        const outputElement = screen.queryByText('good to see you', {exact: false})
+        expect(outputElement).not.toBeInTheDocument();
+    })
 })
 
 
