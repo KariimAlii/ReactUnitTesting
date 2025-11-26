@@ -13,8 +13,14 @@ test('renders Hello World as a text', () => {
     //! screen.get()    ==> will throw error if element is not found
     //! screen.find()   ==> return a promise
     //! screen.query()  ==> will not throw error if element is not found
+
+    //! Exact Match
     const helloWorldElement = screen.getByText('Hello World', {exact: false})
     expect(helloWorldElement).toBeInTheDocument()
+
+    //! Not Exact Match
+    const helloWorldElement2 = screen.getByText('Hello World!')
+    expect(helloWorldElement2).toBeInTheDocument()
 
     // const helloWorldElement = screen.queryByText('Hello World')
     // expect(helloWorldElement).not.toBeInTheDocument();
