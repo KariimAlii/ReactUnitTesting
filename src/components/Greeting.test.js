@@ -65,7 +65,8 @@ describe('Greeting User Feature', () => {
         await user.click(buttonElement);
         //! Assert
         const outputElement = screen.queryByText('good to see you', {exact: false})
-        expect(outputElement).not.toBeInTheDocument();
+        // expect(outputElement).not.toBeInTheDocument();
+        expect(outputElement).toBeNull();
     })
 })
 
