@@ -15,4 +15,7 @@ test('renders Hello World as a text', () => {
     //! screen.query()  ==> will not throw error if element is not found
     const helloWorldElement = screen.getByText('Hello World!')
     expect(helloWorldElement).toBeInTheDocument()
+
+    // const helloWorldElement = screen.queryByText('Hello World')
+    // expect(helloWorldElement).not.toBeInTheDocument();
 })
